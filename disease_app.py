@@ -1,8 +1,35 @@
 import streamlit as st
 import numpy as np
 import pickle
+from PIL import Image
+import base64   # ← ✅ Add this line
+import io       # ← also needed for BytesIO (image conversion)
 
 st.set_page_config(page_title="🧬 Disease Prediction App", layout="wide", page_icon="💉")
+
+
+# --- Show App Logo ---
+# --- Load logo ---
+logo = Image.open("logo.png")
+
+# Convert logo to Base64 (for inline display)
+import io
+buffered = io.BytesIO()
+logo.save(buffered, format="PNG")
+img_str = base64.b64encode(buffered.getvalue()).decode()
+
+# --- Custom header layout ---
+st.markdown(
+    f"""
+    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+        <img src="data:image/png;base64,{img_str}" alt="Logo" style="height:250px; margin-right: 40px;">
+        <h1 style="color:#4B3F72; font-family:'Poppins', sans-serif; font-weight:700; font-size:35px; margin:0;">
+            Early Disease Prediction System
+        </h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # -------------------- Custom CSS for Styling --------------------
 st.markdown("""
