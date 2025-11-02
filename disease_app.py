@@ -107,9 +107,9 @@ st.markdown("""
 
 # -------------------- Load Models --------------------
 diabetes_model = pickle.load(open("diabetes_model.pkl", "rb"))
-diabetes_scaler = pickle.load(open("disease_models/diabetes_scaler.pkl", "rb"))
+diabetes_scaler = pickle.load(open("diabetes_scaler.pkl", "rb"))
 heart_model = pickle.load(open("heart_model.pkl", "rb"))
-heart_scaler = pickle.load(open("disease_models/heart_scaler.pkl", "rb"))
+heart_scaler = pickle.load(open("heart_scaler.pkl", "rb"))     
 
 st.markdown("### 🔍 Select the type of disease test you want to perform:")
 choice = st.selectbox("Select Option", ["Diabetes", "Heart Disease"])
@@ -192,4 +192,5 @@ else:
 # -------------------- Footer --------------------
 st.markdown("<hr>", unsafe_allow_html=True)
 st.caption("✨ Made with ❤️ by **Divya Verma** — College Project")
+
 
